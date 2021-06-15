@@ -4,7 +4,8 @@ public class StateCensusAnalyserExceptions extends Exception {
     public ExceptionType exceptionType;
 
     public enum ExceptionType{
-        WRONG_FILE("Wrong file path");
+        WRONG_FILE("Wrong file path"),
+        INVALID_FILE_EXTENSION("Invalid file extension: Please provide file with .csv extension");
 
         public String message;
         ExceptionType(String message){

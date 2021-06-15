@@ -31,6 +31,8 @@ public class StateCensusAnalyser {
                 csvStateCensusIterator.next();
             }
         }catch (IOException e) {
+            if (!(csvFilePath.contains(".csv")))
+                throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.INVALID_FILE_EXTENSION);
             throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.WRONG_FILE);
         }
         return numberOfEntries;
