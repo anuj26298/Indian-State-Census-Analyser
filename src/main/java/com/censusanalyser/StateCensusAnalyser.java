@@ -34,6 +34,8 @@ public class StateCensusAnalyser {
             if (!(csvFilePath.contains(".csv")))
                 throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.INVALID_FILE_EXTENSION);
             throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.WRONG_FILE);
+        }catch (RuntimeException e){
+            throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.WRONG_DELIMITED_IN_FILE);
         }
         return numberOfEntries;
     }
