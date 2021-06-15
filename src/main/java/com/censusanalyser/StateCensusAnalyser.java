@@ -3,15 +3,21 @@ package com.censusanalyser;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
+
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
 public class StateCensusAnalyser {
-
-    public int loadStateCensusData(String csvFilePath){
+/*
+    loadStateCensusData() method load the given csvFile
+    located at csvFilePath and count the number of
+    entries in the csv file.
+ */
+    public int loadStateCensusData(String csvFilePath) throws StateCensusAnalyserExceptions{
         int numberOfEntries = 0;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
@@ -24,8 +30,8 @@ public class StateCensusAnalyser {
                 numberOfEntries++;
                 csvStateCensusIterator.next();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        }catch (IOException e) {
+            throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.WRONG_FILE);
         }
         return numberOfEntries;
     }
