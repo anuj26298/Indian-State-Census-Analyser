@@ -6,7 +6,8 @@ public class StateCensusAnalyserExceptions extends Exception {
     public enum ExceptionType{
         WRONG_FILE("Wrong file path"),
         INVALID_FILE_EXTENSION("Invalid file extension: Please provide file with .csv extension"),
-        WRONG_DELIMITED_IN_FILE("Wrong Delimited Used In File: Only Use Comma to separate attributes");
+        CSV_FILE_PROBLEM("Problem In Given File: Invalid DataType Used or Invalid Delimiter \n" +
+                "used or Invalid Header Used");
 
         public String message;
         ExceptionType(String message){

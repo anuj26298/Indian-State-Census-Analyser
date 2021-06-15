@@ -35,7 +35,7 @@ public class StateCensusAnalyser {
                 throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.INVALID_FILE_EXTENSION);
             throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.WRONG_FILE);
         }catch (RuntimeException e){
-            throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.WRONG_DELIMITED_IN_FILE);
+            throw new StateCensusAnalyserExceptions(StateCensusAnalyserExceptions.ExceptionType.CSV_FILE_PROBLEM);
         }
         return numberOfEntries;
     }
