@@ -28,5 +28,18 @@ public class StateCensusAnalyserTest {
             Assert.assertEquals(StateCensusAnalyserExceptions.ExceptionType.WRONG_FILE, e.exceptionType);
         }
     }
+    @Test
+    public void givenFilePath_WhenWrongExtension_ReturnInvalidExtensionException() {
+        String STATE_CENSUS_WRONG_FILE_PATH = "C:\\Users\\ANUJ\\IdeaProjects\\Indian State Census Analyser" +
+                "\\src\\main\\resources\\StateCensusData.xlsx";
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            int numberOfEntries = stateCensusAnalyser.loadStateCensusData(STATE_CENSUS_WRONG_FILE_PATH);
+        }catch (StateCensusAnalyserExceptions e){
+            System.out.println(e.getMessage());
+            Assert.assertEquals(StateCensusAnalyserExceptions.ExceptionType.INVALID_FILE_EXTENSION, e.exceptionType);
+        }
+    }
+
 
 }
