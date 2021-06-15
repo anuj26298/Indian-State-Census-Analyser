@@ -50,7 +50,21 @@ public class StateCensusAnalyserTest {
             int numberOfEntries = stateCensusAnalyser.loadStateCensusData(STATE_CENSUS_WRONG_FILE_PATH);
         }catch (StateCensusAnalyserExceptions e){
             System.out.println(e.getMessage());
-            Assert.assertEquals(StateCensusAnalyserExceptions.ExceptionType.WRONG_DELIMITED_IN_FILE, e.exceptionType);
+            Assert.assertEquals(StateCensusAnalyserExceptions.ExceptionType.CSV_FILE_PROBLEM, e.exceptionType);
+        }
+    }
+
+
+    @Test
+    public void givenFile_WhenContainWrongHeader_ReturnWrongHeaderException() {
+        String STATE_CENSUS_WRONG_FILE_PATH = "C:\\Users\\ANUJ\\IdeaProjects\\Indian State Census Analyser" +
+                "\\src\\main\\resources\\StateCensusData.csv";
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            int numberOfEntries = stateCensusAnalyser.loadStateCensusData(STATE_CENSUS_WRONG_FILE_PATH);
+        }catch (StateCensusAnalyserExceptions e){
+            System.out.println(e.getMessage());
+            Assert.assertEquals(StateCensusAnalyserExceptions.ExceptionType.CSV_FILE_PROBLEM, e.exceptionType);
         }
     }
 }
