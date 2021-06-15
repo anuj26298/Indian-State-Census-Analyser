@@ -1,10 +1,9 @@
 package com.censusanalyser;
 
-import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.IOException;
 
 public class StateCensusAnalyserTest {
 
